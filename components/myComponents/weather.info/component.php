@@ -2,7 +2,7 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 try {
-    $apiKey = 'you_key';
+    $apiKey = trim($arParams['OPEN_WEATHER_MAP_KEY']);
     $city = trim($arParams['CITY']); // Удаляем лишние пробелы в начале и в конце
 
     if (empty($city)) {
@@ -34,4 +34,7 @@ try {
 
 } catch (Exception $e) {
     AddMessage2Log($e->getMessage());
+    // Вывод ошибки
+    $arResult['ERROR'] = $e->getMessage();
+    $this->includeComponentTemplate();
 }
