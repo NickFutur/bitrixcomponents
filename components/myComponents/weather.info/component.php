@@ -16,12 +16,12 @@ try {
             $apiUrl = "https://api.openweathermap.org/data/2.5/weather?q={$city}&appid={$apiKey}&units=metric&lang=ru";
 
             // Используем curl для выполнения запроса
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $apiUrl);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $response = curl_exec($ch);
-            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            curl_close($ch);
+            $ch = curl_init(); // инициализирую новую сессию
+            curl_setopt($ch, CURLOPT_URL, $apiUrl); // устанавливаю параметр для cURL-сессии (URL, по которому будет выполнен запрос и адрес API)
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // опция, которая определяет, следует ли возвращать результат запроса как строку (в переменную) или выводить его напрямую (возвращаю как строку)
+            $response = curl_exec($ch); // сохраняю результат запроса в переменную
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE); // сохраняю код ответа
+            curl_close($ch); // закрываю сессию
 
             if ($httpCode !== 200) {
                 throw new Exception("Ошибка API: {$httpCode} - " . $response);
