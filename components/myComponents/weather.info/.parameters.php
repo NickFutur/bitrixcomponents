@@ -3,7 +3,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 $arComponentParameters = array(
     "GROUPS" => array(),
     "PARAMETERS" => array(
-        "TYPE_WEARTHER_APP" => array(
+        "TYPE_WEATHER_APP" => array(
             "PARENT" => "BASE",
             "NAME" => "Выберите приложение прогноза погоды",
             "TYPE" => "LIST", // Тип параметра — выпадающий список

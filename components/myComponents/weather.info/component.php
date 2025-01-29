@@ -2,7 +2,7 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 try {
-    $typeWeatherApp = trim($arParams['TYPE_WEARTHER_APP']);
+    $typeWeatherApp = trim($arParams['TYPE_WEATHER_APP']);
     // Проверка выбранного типа
     switch ($typeWeatherApp) {
         case 'openweathermap':
@@ -64,7 +64,6 @@ try {
                 return;
             }
 
-            // Декодируем ответ
             $data = json_decode($response, true);
 
             // Проверка на наличие ошибок в ответе
